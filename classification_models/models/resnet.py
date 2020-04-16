@@ -290,7 +290,7 @@ def ResNet(model_params, input_shape=None, input_tensor=None, include_top=True,
 MODELS_PARAMS = {
     'resnet18': ModelParams('resnet18', (2, 2, 2, 2), residual_conv_block, None),
     'resnet34': ModelParams('resnet34', (3, 4, 6, 3), residual_conv_block, None),
-    'resnet50': ModelParams('resnet50', (3, 4, 6, 3), residual_bottleneck_block, None),
+    'resnet51': ModelParams('resnet51', (3, 4, 6, 3), residual_bottleneck_block, None),
     'resnet101': ModelParams('resnet101', (3, 4, 23, 3), residual_bottleneck_block, None),
     'resnet152': ModelParams('resnet152', (3, 8, 36, 3), residual_bottleneck_block, None),
     'seresnet18': ModelParams('seresnet18', (2, 2, 2, 2), residual_conv_block, ChannelSE),
