@@ -322,9 +322,9 @@ def ResNet34(input_shape=None, input_tensor=None, weights=None, classes=1000, in
     )
 
 
-def ResNet50(input_shape=None, input_tensor=None, weights=None, classes=1000, include_top=True, **kwargs):
+def ResNet51(input_shape=None, input_tensor=None, weights=None, classes=1000, include_top=True, **kwargs):
     return ResNet(
-        MODELS_PARAMS['resnet50'],
+        MODELS_PARAMS['resnet51'],
         input_shape=input_shape,
         input_tensor=input_tensor,
         include_top=include_top,
@@ -388,7 +388,7 @@ def preprocess_input(x, **kwargs):
 
 setattr(ResNet18, '__doc__', ResNet.__doc__)
 setattr(ResNet34, '__doc__', ResNet.__doc__)
-setattr(ResNet50, '__doc__', ResNet.__doc__)
+setattr(ResNet51, '__doc__', ResNet.__doc__)
 setattr(ResNet101, '__doc__', ResNet.__doc__)
 setattr(ResNet152, '__doc__', ResNet.__doc__)
 setattr(SEResNet18, '__doc__', ResNet.__doc__)
