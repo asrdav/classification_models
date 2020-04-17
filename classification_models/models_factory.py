@@ -12,7 +12,7 @@ class ModelsFactory:
         # ResNets
         'resnet18': [rn.ResNet18, rn.preprocess_input],
         'resnet34': [rn.ResNet34, rn.preprocess_input],
-        'resnet51': [rn.ResNet51, rn.preprocess_input],
+        'resnet50': [rn.ResNet50, rn.preprocess_input],
         'resnet101': [rn.ResNet101, rn.preprocess_input],
         'resnet152': [rn.ResNet152, rn.preprocess_input],
 
