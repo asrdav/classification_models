@@ -228,8 +228,8 @@ def ResNet(model_params, input_shape=None, input_tensor=None, include_top=True,
     init_filters = 64
 
     # resnet bottom
-    # x = layers.BatchNormalization(name='bn_data', **no_scale_bn_params)(img_input)
-    x = layers.ZeroPadding2D(padding=(3, 3))(img_input)
+    x = layers.BatchNormalization(name='bn_data', **no_scale_bn_params)(img_input)
+    x = layers.ZeroPadding2D(padding=(3, 3))(x)
     x = layers.Conv2D(init_filters, (7, 7), strides=(2, 2), name='conv0', **conv_params)(x)
     x = layers.BatchNormalization(name='bn0', **bn_params)(x)
     x = layers.Activation('relu', name='relu0')(x)
@@ -290,7 +290,7 @@ def ResNet(model_params, input_shape=None, input_tensor=None, include_top=True,
 MODELS_PARAMS = {
     'resnet18': ModelParams('resnet18', (2, 2, 2, 2), residual_conv_block, None),
     'resnet34': ModelParams('resnet34', (3, 4, 6, 3), residual_conv_block, None),
-    'resnet51': ModelParams('resnet51', (3, 4, 6, 3), residual_bottleneck_block, None),
+    'resnet50': ModelParams('resnet50', (3, 4, 6, 3), residual_bottleneck_block, None),
     'resnet101': ModelParams('resnet101', (3, 4, 23, 3), residual_bottleneck_block, None),
     'resnet152': ModelParams('resnet152', (3, 8, 36, 3), residual_bottleneck_block, None),
     'seresnet18': ModelParams('seresnet18', (2, 2, 2, 2), residual_conv_block, ChannelSE),
@@ -322,9 +322,9 @@ def ResNet34(input_shape=None, input_tensor=None, weights=None, classes=1000, in
     )
 
 
-def ResNet51(input_shape=None, input_tensor=None, weights=None, classes=1000, include_top=True, **kwargs):
+def ResNet50(input_shape=None, input_tensor=None, weights=None, classes=1000, include_top=True, **kwargs):
     return ResNet(
-        MODELS_PARAMS['resnet51'],
+        MODELS_PARAMS['resnet50'],
         input_shape=input_shape,
         input_tensor=input_tensor,
         include_top=include_top,
@@ -388,7 +388,7 @@ def preprocess_input(x, **kwargs):
 
 setattr(ResNet18, '__doc__', ResNet.__doc__)
 setattr(ResNet34, '__doc__', ResNet.__doc__)
-setattr(ResNet51, '__doc__', ResNet.__doc__)
+setattr(ResNet50, '__doc__', ResNet.__doc__)
 setattr(ResNet101, '__doc__', ResNet.__doc__)
 setattr(ResNet152, '__doc__', ResNet.__doc__)
 setattr(SEResNet18, '__doc__', ResNet.__doc__)
